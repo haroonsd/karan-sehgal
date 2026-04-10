@@ -195,15 +195,15 @@
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    filter: brightness(0.75) contrast(1.05);
+    filter: brightness(0.9) contrast(1.02);
     transition: transform 8s ease;
   }
-  .hero-right:hover .hero-img { transform: scale(1.03); }
+  .hero-right:hover .hero-img { transform: scale(1.02); }
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, var(--navy) 0%, transparent 30%),
-                linear-gradient(0deg, var(--navy) 0%, transparent 40%);
+    background: linear-gradient(90deg, var(--navy) 0%, rgba(13,27,42,0.2) 50%, transparent 80%),
+                linear-gradient(0deg, var(--navy) 0%, transparent 25%);
   }
   .hero-venue-tag {
     position: absolute;
@@ -268,14 +268,14 @@
     border-top: 1px solid rgba(255,255,255,0.06);
     border-bottom: 1px solid rgba(255,255,255,0.06);
     overflow: hidden;
-    background: var(--navy-mid);
+    background: #f5f0e8;
   }
   .brands-label {
     text-align: center;
     font-size: 9px;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: var(--gray);
+    color: #8a7a65;
     margin-bottom: 40px;
   }
   .marquee-wrapper {
@@ -291,14 +291,14 @@
     width: 120px;
     z-index: 2;
   }
-  .marquee-wrapper::before { left: 0; background: linear-gradient(90deg, var(--navy-mid), transparent); }
-  .marquee-wrapper::after { right: 0; background: linear-gradient(-90deg, var(--navy-mid), transparent); }
+  .marquee-wrapper::before { left: 0; background: linear-gradient(90deg, #f5f0e8, transparent); }
+  .marquee-wrapper::after { right: 0; background: linear-gradient(-90deg, #f5f0e8, transparent); }
 
   .marquee-track {
     display: flex;
     gap: 80px;
     align-items: center;
-    animation: marquee 28s linear infinite;
+    animation: marquee 32s linear infinite;
     white-space: nowrap;
     flex-shrink: 0;
   }
@@ -306,16 +306,16 @@
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   .brand-logo {
-    height: 36px;
+    height: 38px;
     width: auto;
-    max-width: 140px;
+    max-width: 150px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.4;
+    filter: grayscale(100%);
+    opacity: 0.5;
     transition: opacity 0.3s, filter 0.3s;
     flex-shrink: 0;
   }
-  .brand-logo:hover { opacity: 0.9; filter: brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(10deg); }
+  .brand-logo:hover { opacity: 1; filter: grayscale(0%); }
 
   /* ── SECTION SHARED ── */
   section { padding: 120px 60px; }
@@ -807,11 +807,11 @@
     </div>
   </div>
   <div class="hero-right">
-    <img class="hero-img" src="A7403642.jpg" alt="Bae Side False Creek Vancouver">
+    <img class="hero-img" src="ChatGPT_Image_Apr_9__2026__06_14_34_PM.png" alt="Karan Sehgal">
     <div class="hero-overlay"></div>
     <div class="hero-venue-tag">
-      <div class="venue-name">Bae Side False Creek</div>
-      <div class="venue-loc">Vancouver, British Columbia</div>
+      <div class="venue-name">Marriott APEC President Circle</div>
+      <div class="venue-loc">Award · 2020</div>
     </div>
   </div>
   <div class="scroll-indicator">
@@ -856,7 +856,7 @@
 <section class="about-section" id="about">
   <div class="about-img-wrap fade-up">
     <div class="about-img-frame"></div>
-    <img class="about-img" src="ChatGPT_Image_Apr_9__2026__06_14_34_PM.png" alt="Karan Sehgal">
+    <img class="about-img" src="A7403642.jpg" alt="Bae Side False Creek Vancouver">
     <div class="about-badge">
       <div class="badge-num">10+</div>
       <div class="badge-text">Years in Hospitality</div>
