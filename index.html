@@ -76,8 +76,8 @@
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
     position: relative;
-    overflow: hidden;
   }
   .hero-left {
     display: flex;
@@ -86,6 +86,8 @@
     padding: 120px 60px 80px;
     position: relative;
     z-index: 2;
+    grid-column: 1;
+    grid-row: 1;
   }
   .hero-eyebrow {
     font-size: 10px;
@@ -191,6 +193,8 @@
     overflow: hidden;
     background: #0d1b2a;
     min-height: 100vh;
+    grid-column: 2;
+    grid-row: 1;
   }
   .hero-img {
     width: 100%;
@@ -235,7 +239,7 @@
 
   /* ── SCROLL INDICATOR ── */
   .scroll-indicator {
-    position: absolute;
+    position: fixed;
     bottom: 40px;
     left: 60px;
     display: flex;
@@ -247,6 +251,7 @@
     color: var(--gray);
     z-index: 3;
     animation: fadeUp 1s 1.5s both;
+    pointer-events: none;
   }
   .scroll-line {
     width: 40px;
