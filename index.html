@@ -806,7 +806,7 @@
     </div>
   </div>
   <div class="hero-right">
-    <img class="hero-img" src="ChatGPT_Image_Apr_9__2026__06_14_34_PM.png" alt="Karan Sehgal" onerror="this.src='A7403642.jpg'">
+    <img class="hero-img" src="karan.png" alt="Karan Sehgal" onerror="this.onerror=null;this.parentElement.style.background='linear-gradient(135deg,#1a2f47,#0d1b2a)'">
     <div class="hero-overlay"></div>
     <div class="hero-venue-tag">
       <div class="venue-name">Marriott APEC President Circle</div>
@@ -1114,29 +1114,6 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // Hero headshot - try multiple filename variants in case GitHub encoding differs
-  const heroImg = document.querySelector('.hero-img');
-  const headshotVariants = [
-    'ChatGPT_Image_Apr_9__2026__06_14_34_PM.png',
-    'ChatGPT%20Image%20Apr%209%2C%202026%2006_14_34%20PM.png',
-    'ChatGPT Image Apr 9, 2026 06_14_34 PM.png',
-    'A7403642.jpg'
-  ];
-  let attempt = 0;
-  heroImg.addEventListener('error', function() {
-    attempt++;
-    if (attempt < headshotVariants.length) {
-      this.src = headshotVariants[attempt];
-    } else {
-      this.style.display = 'none';
-      this.parentElement.style.background = 'linear-gradient(135deg, #1a2f47 0%, #0d1b2a 100%)';
-      const initials = document.createElement('div');
-      initials.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Cormorant Garamond",serif;font-size:120px;font-weight:300;color:rgba(201,169,110,0.15);';
-      initials.textContent = 'KS';
-      this.parentElement.appendChild(initials);
-    }
-  });
 </script>
 </body>
 </html>
