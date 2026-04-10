@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karan Sehgal — Hospitality Sales & Events</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #132236;
+    --navy-light: #1a2f47;
+    --gold: #c9a96e;
+    --gold-light: #e2c99a;
+    --gold-pale: #f5edd8;
+    --white: #fdfaf5;
+    --gray: #8a9bb0;
+    --gray-light: #b8c5d1;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 28px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.4s, padding 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(13,27,42,0.97);
+    backdrop-filter: blur(12px);
+    padding: 18px 60px;
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--gray-light);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 60px 80px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 6vw, 88px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-title {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 48px;
+    font-weight: 400;
+  }
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--gray-light);
+    max-width: 440px;
+    margin-bottom: 56px;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 16px 36px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid rgba(201,169,110,0.4);
+    color: var(--gold-light);
+    padding: 16px 36px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.3s, color 0.3s, transform 0.2s;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    padding-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: auto;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: brightness(0.75) contrast(1.05);
+    transition: transform 8s ease;
+  }
+  .hero-right:hover .hero-img { transform: scale(1.03); }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--navy) 0%, transparent 30%),
+                linear-gradient(0deg, var(--navy) 0%, transparent 40%);
+  }
+  .hero-venue-tag {
+    position: absolute;
+    bottom: 48px;
+    right: 48px;
+    background: rgba(13,27,42,0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201,169,110,0.25);
+    padding: 16px 24px;
+    text-align: right;
+  }
+  .hero-venue-tag .venue-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--gold-light);
+    font-style: italic;
+  }
+  .hero-venue-tag .venue-loc {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gray);
+    z-index: 3;
+    animation: fadeUp 1s 1.5s both;
+  }
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    animation: scanLine 2s infinite;
+  }
+  @keyframes scanLine { to { left: 100%; } }
+
+  /* ── LOGO MARQUEE ── */
+  .brands-section {
+    padding: 64px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+    background: var(--navy-mid);
+  }
+  .brands-label {
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 40px;
+  }
+  .marquee-wrapper {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+  }
+  .marquee-wrapper::before,
+  .marquee-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+  }
+  .marquee-wrapper::before { left: 0; background: linear-gradient(90deg, var(--navy-mid), transparent); }
+  .marquee-wrapper::after { right: 0; background: linear-gradient(-90deg, var(--navy-mid), transparent); }
+
+  .marquee-track {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    animation: marquee 28s linear infinite;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .marquee-track:hover { animation-play-state: paused; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .brand-logo {
+    height: 36px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.4;
+    transition: opacity 0.3s, filter 0.3s;
+    flex-shrink: 0;
+  }
+  .brand-logo:hover { opacity: 0.9; filter: brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(10deg); }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 120px 60px; }
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-label::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 4vw, 60px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .section-title em { font-style: italic; color: var(--gold-light); }
+
+  /* ── ABOUT ── */
+  .about-section {
+    background: var(--navy-mid);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .about-img-frame {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid rgba(201,169,110,0.25);
+    pointer-events: none;
+  }
+  .about-badge {
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 24px;
+    text-align: center;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about-badge .badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1;
+  }
+  .about-badge .badge-text {
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 4px;
+    color: var(--navy);
+  }
+  .about-body {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--gray-light);
+    margin-bottom: 40px;
+  }
+  .about-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .highlight-item {
+    padding: 20px;
+    border: 1px solid rgba(201,169,110,0.15);
+    border-left: 3px solid var(--gold);
+  }
+  .highlight-item .hi-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--gold);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .highlight-item .hi-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  /* ── EXPERIENCE ── */
+  .experience-section { background: var(--navy); }
+  .exp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 64px;
+  }
+  .exp-card {
+    background: var(--navy-mid);
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+  .exp-card:hover { background: var(--navy-light); }
+  .exp-card:hover::before { height: 100%; }
+  .exp-card.featured {
+    grid-column: span 2;
+    background: var(--navy-light);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .exp-card.featured::before { height: 100%; }
+  .exp-period {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .exp-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+  .exp-company {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .exp-desc {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--gray-light);
+  }
+  .exp-achievement {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: rgba(201,169,110,0.08);
+    border-left: 2px solid var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .exp-tag {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid rgba(201,169,110,0.2);
+    color: var(--gray);
+  }
+  .exp-venue-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    filter: brightness(0.8);
+  }
+
+  /* ── GALLERY / VENUES ── */
+  .venues-section {
+    background: var(--navy-mid);
+    padding: 120px 0;
+  }
+  .venues-header { padding: 0 60px; margin-bottom: 64px; }
+  .venues-scroll {
+    display: flex;
+    gap: 24px;
+    padding: 0 60px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .venues-scroll::-webkit-scrollbar { display: none; }
+  .venue-card {
+    flex-shrink: 0;
+    width: 420px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .venue-card img {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+    filter: brightness(0.75);
+  }
+  .venue-card:hover img { transform: scale(1.05); filter: brightness(0.9); }
+  .venue-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 48px 32px 32px;
+    background: linear-gradient(0deg, rgba(13,27,42,0.95) 0%, transparent 100%);
+  }
+  .venue-info .vi-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 6px;
+  }
+  .venue-info .vi-sub {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── SKILLS ── */
+  .skills-section {
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: start;
+  }
+  .skills-list { margin-top: 48px; }
+  .skill-row {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+  }
+  .skill-row:hover .skill-bar-fill { width: 100% !important; }
+  .skill-name {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--gray-light);
+  }
+  .skill-bar {
+    width: 140px;
+    height: 2px;
+    background: rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transition: width 0.6s ease;
+  }
+
+  .awards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .award-card {
+    padding: 28px;
+    border: 1px solid rgba(201,169,110,0.12);
+    background: var(--navy-mid);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .award-card:hover { border-color: rgba(201,169,110,0.4); }
+  .award-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .award-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--gold-light);
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+  .award-sub {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--navy-light);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 140px 60px;
+  }
+  .contact-section::before {
+    content: 'KS';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 300px;
+    font-weight: 300;
+    color: rgba(201,169,110,0.04);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .contact-section .section-label { justify-content: center; }
+  .contact-section .section-label::before { display: none; }
+  .contact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .contact-title em { font-style: italic; color: var(--gold-light); }
+  .contact-sub {
+    font-size: 15px;
+    color: var(--gray-light);
+    max-width: 500px;
+    margin: 0 auto 56px;
+    line-height: 1.8;
+  }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border: 1px solid rgba(201,169,110,0.2);
+    color: var(--gray-light);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .contact-item:hover { border-color: var(--gold); color: var(--gold); }
+  .contact-item svg { flex-shrink: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 32px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--gold);
+    font-style: italic;
+  }
+  .footer-copy {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  .hero-left > * { animation: fadeUp 0.8s ease both; }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero-name { animation-delay: 0.25s; }
+  .hero-title { animation-delay: 0.4s; }
+  .hero-desc { animation-delay: 0.5s; }
+  .hero-cta { animation-delay: 0.6s; }
+  .hero-stats { animation-delay: 0.7s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { height: 50vh; }
+    .hero-left { padding: 100px 24px 60px; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .about-section { grid-template-columns: 1fr; padding: 80px 24px; gap: 60px; }
+    .experience-section { padding: 80px 24px; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .exp-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+    .skills-section { grid-template-columns: 1fr; padding: 80px 24px; gap: 60px; }
+    .awards-grid { grid-template-columns: 1fr; }
+    section { padding: 80px 24px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+    .venue-card { width: 320px; }
+    .venue-card img { height: 420px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#">Karan Sehgal</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#venues">Venues</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Sales &amp; Events Professional</div>
+    <h1 class="hero-name">Karan<br><em>Sehgal</em></h1>
+    <p class="hero-title">Hospitality Revenue Growth &nbsp;·&nbsp; Vancouver, BC</p>
+    <p class="hero-desc">10+ years turning hospitality spaces into revenue engines — from luxury Marriott hotels across India to multi-property portfolios in British Columbia and now leading event sales at Vancouver's premier waterfront dining destination.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+      <a href="#experience" class="btn-outline">View Experience</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">138%</div>
+        <div class="stat-label">Revenue Growth</div>
+      </div>
+      <div>
+        <div class="stat-num">250+</div>
+        <div class="stat-label">Accounts Managed</div>
+      </div>
+      <div>
+        <div class="stat-num">8</div>
+        <div class="stat-label">Properties Led</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img" src="A7403642.jpg" alt="Bae Side False Creek Vancouver">
+    <div class="hero-overlay"></div>
+    <div class="hero-venue-tag">
+      <div class="venue-name">Bae Side False Creek</div>
+      <div class="venue-loc">Vancouver, British Columbia</div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- BRAND MARQUEE -->
+<div class="brands-section">
+  <div class="brands-label">Brands &amp; Partners Throughout Career</div>
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <img class="brand-logo" src="Marriott-International-Logo-2016-present.jpg" alt="Marriott International">
+      <img class="brand-logo" src="Ritz-Carlton-logo.png" alt="The Ritz-Carlton">
+      <img class="brand-logo" src="292-2927269_jw-marriott-marquis-dubai-logo.png" alt="JW Marriott">
+      <img class="brand-logo" src="images.png" alt="Le Meridien">
+      <img class="brand-logo" src="The_Leela_Palaces__Hotels_and_Resorts_logo_svg.png" alt="The Leela">
+      <img class="brand-logo" src="Trademark_Collection_Logo_Logo-1536x805.jpg" alt="Trademark by Wyndham">
+      <img class="brand-logo" src="Ramada.png" alt="Ramada by Wyndham">
+      <img class="brand-logo" src="HowardJohnson_-_Logo_1996_svg.png" alt="Howard Johnson">
+      <img class="brand-logo" src="Super8.png" alt="Super 8">
+      <img class="brand-logo" src="Chick-fil-A_Logo_svg.png" alt="Chick-fil-A">
+      <img class="brand-logo" src="Baeside-Logo-1.png" alt="Bae Side">
+      <!-- Duplicate for seamless loop -->
+      <img class="brand-logo" src="Marriott-International-Logo-2016-present.jpg" alt="Marriott International">
+      <img class="brand-logo" src="Ritz-Carlton-logo.png" alt="The Ritz-Carlton">
+      <img class="brand-logo" src="292-2927269_jw-marriott-marquis-dubai-logo.png" alt="JW Marriott">
+      <img class="brand-logo" src="images.png" alt="Le Meridien">
+      <img class="brand-logo" src="The_Leela_Palaces__Hotels_and_Resorts_logo_svg.png" alt="The Leela">
+      <img class="brand-logo" src="Trademark_Collection_Logo_Logo-1536x805.jpg" alt="Trademark by Wyndham">
+      <img class="brand-logo" src="Ramada.png" alt="Ramada by Wyndham">
+      <img class="brand-logo" src="HowardJohnson_-_Logo_1996_svg.png" alt="Howard Johnson">
+      <img class="brand-logo" src="Super8.png" alt="Super 8">
+      <img class="brand-logo" src="Chick-fil-A_Logo_svg.png" alt="Chick-fil-A">
+      <img class="brand-logo" src="Baeside-Logo-1.png" alt="Bae Side">
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-img-wrap fade-up">
+    <div class="about-img-frame"></div>
+    <img class="about-img" src="ChatGPT_Image_Apr_9__2026__06_14_34_PM.png" alt="Karan Sehgal">
+    <div class="about-badge">
+      <div class="badge-num">10+</div>
+      <div class="badge-text">Years in Hospitality</div>
+    </div>
+  </div>
+  <div class="fade-up">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">Revenue Growth<br>Through <em>Relationships</em></h2>
+    <p class="about-body">I've spent over a decade turning hospitality spaces into revenue engines — from luxury hotel sales at Marriott International and The Leela, to managing multi-property portfolios across British Columbia, and now leading sales and events at Bae Side Co. in Vancouver.</p>
+    <p class="about-body">Whether it's a 20-person corporate dinner, a 200-person private celebration, or a full brand transition from Super 8 to Ramada by Wyndham, I handle everything with a bias for action, a strong pipeline mindset, and the ability to build trust fast.</p>
+    <div class="about-highlights">
+      <div class="highlight-item">
+        <div class="hi-num">142.8%</div>
+        <div class="hi-label">Budget Overachieved, Leela 2022</div>
+      </div>
+      <div class="highlight-item">
+        <div class="hi-num">138%</div>
+        <div class="hi-label">Revenue Growth, Plaza Group</div>
+      </div>
+      <div class="highlight-item">
+        <div class="hi-num">25K+</div>
+        <div class="hi-label">Sq. Ft. Event Space Managed</div>
+      </div>
+      <div class="highlight-item">
+        <div class="hi-num">350+</div>
+        <div class="hi-label">Candidates Beaten, Voyager Program</div>
+      </div>
+    </div>
+    <a href="#contact" class="btn-primary">Let's Connect</a>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience-section" id="experience">
+  <div class="section-label fade-up">Career Journey</div>
+  <h2 class="section-title fade-up">Progressive <em>Excellence</em><br>Across Brands</h2>
+  <div class="exp-grid">
+
+    <div class="exp-card featured fade-up">
+      <div>
+        <div class="exp-period">Apr 2025 — Present</div>
+        <div class="exp-role">Multi-Restaurant Sales &amp; Events</div>
+        <div class="exp-company">Bae Side Co. | Mishree Restaurant Concepts · Vancouver, BC</div>
+        <p class="exp-desc">Leading end-to-end sales and event operations across four restaurant concepts with a combined 25,000+ sq. ft. of event space spanning Vancouver, Surrey, and Ontario. Managing the full sales cycle from prospecting through to on-site execution for corporate functions, private dining, group bookings, and large-format activations.</p>
+        <div class="exp-achievement">"Waterfront dining meets world-class event sales."</div>
+        <div class="exp-tags">
+          <span class="exp-tag">Event Sales</span>
+          <span class="exp-tag">Corporate Events</span>
+          <span class="exp-tag">B2B Partnerships</span>
+          <span class="exp-tag">Group Bookings</span>
+        </div>
+      </div>
+      <img class="exp-venue-img" src="A7408458_copy.jpg" alt="Bae Side False Creek">
+    </div>
+
+    <div class="exp-card fade-up">
+      <div class="exp-period">Mar 2024 — Jan 2025</div>
+      <div class="exp-role">Multi-Property Sales Manager</div>
+      <div class="exp-company">The Plaza Hotel (Trademark by Wyndham) · Kamloops, BC</div>
+      <p class="exp-desc">Directed sales strategy across 8 properties spanning British Columbia. Grew overall portfolio revenue by 138.36% through strategic corporate account development and RFP/LNR acquisition. Led the full rebranding transition of Super 8 Cranbrook to Ramada by Wyndham.</p>
+      <div class="exp-achievement">138.36% revenue growth across 8 properties</div>
+      <div class="exp-tags">
+        <span class="exp-tag">Multi-Property</span>
+        <span class="exp-tag">RFP/LNR</span>
+        <span class="exp-tag">Rebranding</span>
+      </div>
+    </div>
+
+    <div class="exp-card fade-up">
+      <div class="exp-period">Feb 2022 — Aug 2023</div>
+      <div class="exp-role">Sales Account Manager</div>
+      <div class="exp-company">The Leela Ambience Gurugram · Delhi NCR, India</div>
+      <p class="exp-desc">Drove business development for a luxury property with 442 guest rooms and 40,000+ sq. ft. of MICE and convention space. Exceeded annual revenue budget by 142.8% in 2022 through high-value corporate account management.</p>
+      <div class="exp-achievement">142.8% of annual budget achieved</div>
+      <div class="exp-tags">
+        <span class="exp-tag">Luxury Sales</span>
+        <span class="exp-tag">MICE</span>
+        <span class="exp-tag">Corporate Accounts</span>
+      </div>
+    </div>
+
+    <div class="exp-card fade-up">
+      <div class="exp-period">2016 — 2022</div>
+      <div class="exp-role">Marriott International</div>
+      <div class="exp-company">Intern → Trainee → Voyager → Asst. Sales Manager</div>
+      <p class="exp-desc">Progressive growth across The Ritz-Carlton Bangalore, JW Marriott Pune, and Le Meridien Gurgaon. Selected from 350+ candidates for Marriott's elite Voyager Management Training Program. Achieved 122.6% of budget in 2019 as RFP and LNR Champion managing 250+ accounts.</p>
+      <div class="exp-achievement">Marriott APEC President Circle 2020</div>
+      <div class="exp-tags">
+        <span class="exp-tag">Luxury Hotels</span>
+        <span class="exp-tag">Management Training</span>
+        <span class="exp-tag">250+ Accounts</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VENUES -->
+<div class="venues-section" id="venues">
+  <div class="venues-header fade-up">
+    <div class="section-label">Where I Work</div>
+    <h2 class="section-title">Iconic <em>Venues</em></h2>
+  </div>
+  <div class="venues-scroll">
+    <div class="venue-card fade-up">
+      <img src="A7403642.jpg" alt="Bae Side False Creek Patio">
+      <div class="venue-info">
+        <div class="vi-name">Bae Side False Creek</div>
+        <div class="vi-sub">Waterfront Dining · Vancouver, BC</div>
+      </div>
+    </div>
+    <div class="venue-card fade-up">
+      <img src="A7403668.jpg" alt="Bae Side Patio Evening">
+      <div class="venue-info">
+        <div class="vi-name">Bae Side Patio</div>
+        <div class="vi-sub">25,000+ Sq. Ft. Event Space</div>
+      </div>
+    </div>
+    <div class="venue-card fade-up">
+      <img src="A7408458_copy.jpg" alt="Bae Side Exterior">
+      <div class="venue-info">
+        <div class="vi-name">False Creek Marina</div>
+        <div class="vi-sub">Private Events &amp; Activations</div>
+      </div>
+    </div>
+    <div class="venue-card fade-up">
+      <img src="Bae_Side.png" alt="Bae Side by Water">
+      <div class="venue-info">
+        <div class="vi-name">Bae Side by Water</div>
+        <div class="vi-sub">Corporate Dinners &amp; Celebrations</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="fade-up">
+    <div class="section-label">Expertise</div>
+    <h2 class="section-title">Core <em>Skills</em><br>&amp; Recognition</h2>
+    <div class="skills-list">
+      <div class="skill-row">
+        <span class="skill-name">Event Sales</span>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Corporate Account Management</span>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Revenue Management</span>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Catering Sales / MICE</span>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">RFP / LNR Management</span>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:92%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Multi-Property Operations</span>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Brand Rebranding &amp; Transitions</span>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fade-up">
+    <div class="section-label">Awards &amp; Recognition</div>
+    <div class="awards-grid">
+      <div class="award-card">
+        <div class="award-icon">🏆</div>
+        <div class="award-title">APEC President Circle</div>
+        <div class="award-sub">Marriott International · 2020</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">⭐</div>
+        <div class="award-title">Tri-Quarter Golden Circle</div>
+        <div class="award-sub">Marriott International · 2019</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🎯</div>
+        <div class="award-title">Voyager Management Trainee</div>
+        <div class="award-sub">Selected from 350+ Candidates India</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">📈</div>
+        <div class="award-title">142.8% Budget Achievement</div>
+        <div class="award-sub">The Leela Ambience · 2022</div>
+      </div>
+    </div>
+    <div style="margin-top:40px">
+      <div class="section-label" style="margin-bottom:20px">Software</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span class="exp-tag" style="color:var(--gold-light);border-color:rgba(201,169,110,0.3)">Salesforce CRM</span>
+        <span class="exp-tag" style="color:var(--gold-light);border-color:rgba(201,169,110,0.3)">Opera PMS</span>
+        <span class="exp-tag" style="color:var(--gold-light);border-color:rgba(201,169,110,0.3)">Cvent</span>
+        <span class="exp-tag" style="color:var(--gold-light);border-color:rgba(201,169,110,0.3)">Lanyon</span>
+        <span class="exp-tag" style="color:var(--gold-light);border-color:rgba(201,169,110,0.3)">MarRFP</span>
+        <span class="exp-tag" style="color:var(--gold-light);border-color:rgba(201,169,110,0.3)">ASI</span>
+        <span class="exp-tag" style="color:var(--gold-light);border-color:rgba(201,169,110,0.3)">Synix</span>
+        <span class="exp-tag" style="color:var(--gold-light);border-color:rgba(201,169,110,0.3)">MGS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label fade-up">Get In Touch</div>
+  <h2 class="contact-title fade-up">Let's Build Something<br><em>Exceptional Together</em></h2>
+  <p class="contact-sub fade-up">Open to new opportunities in hospitality sales, event management, and business development across Vancouver and beyond.</p>
+  <div class="contact-links fade-up">
+    <a href="mailto:k.sehgal@live.in" class="contact-item">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      k.sehgal@live.in
+    </a>
+    <a href="tel:+12496882284" class="contact-item">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A1 1 0 0121 15.72V19a2 2 0 01-2 2H17C9.163 21 3 14.837 3 7V5z"/></svg>
+      +1 (249) 688-2284
+    </a>
+    <a href="https://linkedin.com/in/karansehgal-656a5411a" target="_blank" class="contact-item">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn Profile
+    </a>
+    <a href="karan-sehgal-portfolio.html" class="contact-item btn-primary" style="border:none">
+      Download Resume
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Karan Sehgal</div>
+  <div class="footer-copy">© 2026 · Vancouver, British Columbia, Canada</div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Intersection observer for fade-up
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Smooth image load fallback - use placeholder color if image missing
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function() {
+      this.style.background = '#1a2f47';
+      this.style.minHeight = '200px';
+    });
+  });
+</script>
+</body>
+</html>
