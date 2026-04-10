@@ -310,12 +310,11 @@
     width: auto;
     max-width: 150px;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.5;
-    transition: opacity 0.3s, filter 0.3s;
+    opacity: 0.75;
+    transition: opacity 0.3s, transform 0.3s;
     flex-shrink: 0;
   }
-  .brand-logo:hover { opacity: 1; filter: grayscale(0%); }
+  .brand-logo:hover { opacity: 1; transform: scale(1.05); }
 
   /* ── SECTION SHARED ── */
   section { padding: 120px 60px; }
@@ -779,7 +778,7 @@
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Sales &amp; Events Professional</div>
+    <div class="hero-eyebrow">Sales &amp; Event Marketing Specialist</div>
     <h1 class="hero-name">Karan<br><em>Sehgal</em></h1>
     <p class="hero-title">Hospitality Revenue Growth &nbsp;·&nbsp; Vancouver, BC</p>
     <p class="hero-desc">10+ years turning hospitality spaces into revenue engines — from luxury Marriott hotels across India to multi-property portfolios in British Columbia and now leading event sales at Vancouver's premier waterfront dining destination.</p>
@@ -807,11 +806,11 @@
     </div>
   </div>
   <div class="hero-right">
-    <img class="hero-img" src="ChatGPT_Image_Apr_9__2026__06_14_34_PM.png" alt="Karan Sehgal">
+    <img class="hero-img" src="ChatGPT_Image_Apr_9__2026__06_14_34_PM.png" alt="Karan Sehgal" onerror="this.src='A7403642.jpg'">
     <div class="hero-overlay"></div>
     <div class="hero-venue-tag">
       <div class="venue-name">Marriott APEC President Circle</div>
-      <div class="venue-loc">Award · 2020</div>
+      <div class="venue-loc">Award &nbsp;·&nbsp; 2020</div>
     </div>
   </div>
   <div class="scroll-indicator">
@@ -1098,7 +1097,7 @@
   <div class="footer-copy">© 2026 · Vancouver, British Columbia, Canada</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Nav scroll effect
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -1116,4 +1115,28 @@
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // Smooth image load fallback - use placeholder colo
+  // Hero headshot - try multiple filename variants in case GitHub encoding differs
+  const heroImg = document.querySelector('.hero-img');
+  const headshotVariants = [
+    'ChatGPT_Image_Apr_9__2026__06_14_34_PM.png',
+    'ChatGPT%20Image%20Apr%209%2C%202026%2006_14_34%20PM.png',
+    'ChatGPT Image Apr 9, 2026 06_14_34 PM.png',
+    'A7403642.jpg'
+  ];
+  let attempt = 0;
+  heroImg.addEventListener('error', function() {
+    attempt++;
+    if (attempt < headshotVariants.length) {
+      this.src = headshotVariants[attempt];
+    } else {
+      this.style.display = 'none';
+      this.parentElement.style.background = 'linear-gradient(135deg, #1a2f47 0%, #0d1b2a 100%)';
+      const initials = document.createElement('div');
+      initials.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Cormorant Garamond",serif;font-size:120px;font-weight:300;color:rgba(201,169,110,0.15);';
+      initials.textContent = 'KS';
+      this.parentElement.appendChild(initials);
+    }
+  });
+</script>
+</body>
+</html>
